@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         private int newWidth;
 
         public MyAdapter(Context context) {
-            super(context, R.layout.item);
+            super(context, R.layout.item_with_react_root_view);
         }
 
         @Override
@@ -55,9 +55,9 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view =
-                    LayoutInflater.from(MainActivity.this).inflate(R.layout.item, parent, false);
+        public View getView(int position, View view, ViewGroup parent) {
+            view = LayoutInflater.from(MainActivity.this)
+                    .inflate(R.layout.item_with_react_root_view, parent, false);
             ReactRootView mReactRootView = (ReactRootView) view.findViewById(R.id.test_js);
             ReactInstanceManager mReactInstanceManager = ReactInstanceManager.builder()
                     .setApplication(getApplication())
